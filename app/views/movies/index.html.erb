@@ -1,0 +1,8 @@
+<% @movies.each do |movie| %>
+<div>
+  <%= link_to movie_path(movie.id) do %>
+    <%= attachment_image_tag movie, :image %>
+  <% end %>
+    <%= link_to movie.name, movie_path(movie.id) %>
+  <% end %>
+</div>
