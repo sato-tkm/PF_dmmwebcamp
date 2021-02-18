@@ -1,1 +1,6 @@
 トップページ
+<div id="slider">
+  <% @movies.each do |movie| %>
+    <%= attachment_image_tag movie, :image, :fill, 1200, 800, format: "jpeg" %>
+   <% end %>
+</div>

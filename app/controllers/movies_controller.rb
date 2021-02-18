@@ -16,8 +16,8 @@ class MoviesController < ApplicationController
   end
 
   def show
-    @movie = Movie.where(id: params[:id])
-    @movie_comments = MovieComment.new
+    @movie = Movie.find(params[:id])
+    @movie_comment = MovieComment.new
   end
 
   private
