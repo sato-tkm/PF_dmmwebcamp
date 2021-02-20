@@ -18,6 +18,11 @@ class MoviesController < ApplicationController
   def show
     @movie = Movie.find(params[:id])
     @movie_comment = MovieComment.new
+    @like = Like.new
+  end
+
+  def search
+    @movies = Movie.search(params[:search])
   end
 
   private

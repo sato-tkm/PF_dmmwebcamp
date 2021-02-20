@@ -22,3 +22,8 @@
     left: 10px !important;
   z-index: 100;
  }
+ 
+ #slider {
+     width: 50%;
+     height: 50%;
+ }

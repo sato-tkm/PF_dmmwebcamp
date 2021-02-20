@@ -1,6 +1,18 @@
 トップページ
 <div id="slider">
   <% @movies.each do |movie| %>
-    <%= attachment_image_tag movie, :image, :fill, 1200, 800, format: "jpeg" %>
+    <%= attachment_image_tag movie, :image, :fill, 600, 400, format: "jpeg" %>
    <% end %>
 </div>
+
+
+<script>
+$(function() {
+  $('#slider').not('.slick-initialized').slick({
+      dots: true, //スライドの下にドットのナビゲーションを表示
+      autoplay: true, //自動再生
+      autoplaySpeed: 4000, //再生スピード
+  });
+  console.log("slick!!!")
+});
+</script>

@@ -1,0 +1,9 @@
+
+
+<ul><% @movies.each do |movie| %>
+  <li>
+    <%= link_to movie.name, movie %>
+    <%= movie.created_at %>
+  </li>
+  <% end %>
+</ul>
