@@ -71,3 +71,4 @@ group :production do
 end
 
 gem 'jquery-rails'
+gem 'byebug'

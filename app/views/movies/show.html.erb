@@ -2,14 +2,17 @@
   <%= attachment_image_tag @movie, :image %>
   <p>タイトル：<%= @movie.name %></p>
   <p>説明：<%= @movie.body %></p>
+  <% @movie.genres.each do |genre| %>
+    <p>ジャンル : <%= link_to genre.genrename, movies_path(genre_id: genre.id) %></p>
+  <% end %>
   <p>投稿日時：<%= @movie.created_at.strftime('%Y/%m/%d') %></p>
 </div>
 
 <div class="comments">
-<p>コメント件数：</p>
+<p>コメント</p>
 <% @movie.movie_comments.each do |movie_comment| %>
-  <%= movie_comment.created_at.strftime('%Y/%m/%d') %><%= movie_comment.comment %>
-  <%= movie_comment.user.name %>
+  <%= movie_comment.created_at.strftime('%Y/%m/%d') %><%= movie_comment.comment %><br>
+  <%= movie_comment.user.name %><br>
   <p class="movie_comment-evaluation" data-score="<%= movie_comment.evaluation %>"></p>
   <% if movie_comment.user == current_user %>
   <div class="comment-delete">

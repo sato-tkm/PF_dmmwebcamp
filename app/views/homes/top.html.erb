@@ -1,7 +1,9 @@
 トップページ
 <div id="slider">
   <% @movies.each do |movie| %>
-    <%= attachment_image_tag movie, :image, :fill, 600, 400, format: "jpeg" %>
+    <%= link_to movie_path(movie) do %>
+      <%= attachment_image_tag movie, :image, :fill, 600, 400, format: "jpeg" %>
+    <% end %>
    <% end %>
 </div>
 
@@ -16,3 +18,5 @@ $(function() {
   console.log("slick!!!")
 });
 </script>
+
+<%= link_to 'ジャンル一覧', genres_path %>

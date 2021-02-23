@@ -1,0 +1,6 @@
+<%= link_to 'ジャンル追加', new_genre_path %>
+<% @genres.each do |genre| %>
+ <div>
+   <%= link_to genre.genrename, movies_path(genre_id: genre.id) %>
+ </div>
+<% end %>

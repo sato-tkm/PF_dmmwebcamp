@@ -5,13 +5,17 @@ class MoviesController < ApplicationController
 
   def create
     @movie = Movie.new(movie_params)
-    @movie.save
+    @movie.save!
     flash[:notice] = "successfully"
     redirect_to movies_path
   end
 
   def index
-    @movies = Movie.all
+    @movies = if params[:genre_id].present?
+      Movie.joins(:movie_genres).where('movie_genres.genre_id = ?', params[:genre_id])
+    else
+      Movie.all
+    end
     @movie = MovieComment.new
   end
 
@@ -27,6 +31,6 @@ class MoviesController < ApplicationController
 
   private
   def movie_params
-    params.require(:movie).permit(:name, :body, :image)
+    params.require(:movie).permit(:name, :body, :image, genre_ids: [])
   end
 end
