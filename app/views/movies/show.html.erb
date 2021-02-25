@@ -1,7 +1,8 @@
-<div class="post-body">
+<body class="text-center">
+  <div class="post-body">
   <%= attachment_image_tag @movie, :image %>
   <p>タイトル：<%= @movie.name %></p>
-  <p>説明：<%= @movie.body %></p>
+  <p>内容：<%= @movie.body %></p>
   <% @movie.genres.each do |genre| %>
     <p>ジャンル : <%= link_to genre.genrename, movies_path(genre_id: genre.id) %></p>
   <% end %>
@@ -53,4 +54,5 @@
     path: '/assets/'
   });
 </script>
+</body>
 

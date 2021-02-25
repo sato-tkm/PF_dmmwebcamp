@@ -13,6 +13,10 @@
  *= require_tree .
  *= require_self
  */
+ @import "bootstrap";
+ @import 'font-awesome-sprockets';
+ @import 'font-awesome';
+
 .slick-next {
     right: 10px !important;
     z-index: 100;
@@ -22,8 +26,9 @@
     left: 10px !important;
   z-index: 100;
  }
- 
+
  #slider {
      width: 50%;
      height: 50%;
  }
+

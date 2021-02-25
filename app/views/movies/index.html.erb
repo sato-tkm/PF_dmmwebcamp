@@ -1,8 +1,29 @@
-<% @movies.each do |movie| %>
-<div>
-  <%= link_to movie_path(movie.id) do %>
-    <%= attachment_image_tag movie, :image %>
+<style>
+body {
+  padding-top: 5rem;
+}
+.starter-template {
+  padding: 3rem 1.5rem;
+  text-align: center;
+}
+</style>
+<body class="text-center">
+<main role="main" class="container">
+
+  <div class="starter-template">
+    <h1>映画感想・レビュー</h1><br>
+<h2>ユーザから投稿いただいた映画作品の感想・レビュー・評価を掲載。劇場で見たり、DVD・TVなどの過去作品のレビューも募集中。見たい映画の参考にぜひどうぞ。</h2>
+    <p class="lead">
+<div class="row">
+  <% @movies.each do |movie| %>
+    <div>
+      <div class="col-md-3">
+        <%= link_to movie_path(movie.id) do %>
+          <%= attachment_image_tag movie, :image, :fill, 150, 150, fallback: "no-image-icon.jpg" %>
+        <% end %>
+        <h2><%= link_to movie.name, movie_path(movie.id) %></h2>
+      </div>
+    </div>
   <% end %>
-    <%= link_to movie.name, movie_path(movie.id) %>
-  <% end %>
+</div>
 </div>

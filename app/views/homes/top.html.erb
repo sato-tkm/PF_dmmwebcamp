@@ -1,5 +1,41 @@
-トップページ
-<div id="slider">
+<style>
+body {
+  padding-top: 5rem;
+}
+.starter-template {
+  padding: 3rem 1.5rem;
+  text-align: center;
+}
+</style>
+<body class="bg-info" class="text-center">
+<main role="main" class="container">
+
+  <div class="starter-template">
+    <h1>映画感想・レビュー</h1><br>
+<h2>ユーザから投稿いただいた映画作品の感想・レビュー・評価を掲載。劇場で見たり、DVD・TVなどの過去作品のレビューも募集中。見たい映画の参考にぜひどうぞ。</h2>
+    <p class="lead">
+      <div id="slider" class="mx-auto">
+      <% @movies.each do |movie| %>
+    <%= link_to movie_path(movie) do %>
+      <%= attachment_image_tag movie, :image, :fill, 600, 400, format: "jpeg" %>
+    <% end %>
+   <% end %>
+   </div>
+  </div>
+  <script>
+$(function() {
+  $('#slider').not('.slick-initialized').slick({
+      dots: true, //スライドの下にドットのナビゲーションを表示
+      autoplay: true, //自動再生
+      autoplaySpeed: 4000, //再生スピード
+  });
+  console.log("slick!!!")
+});
+</script>
+
+</body>
+</main>
+<!--<div id="slider">
   <% @movies.each do |movie| %>
     <%= link_to movie_path(movie) do %>
       <%= attachment_image_tag movie, :image, :fill, 600, 400, format: "jpeg" %>
@@ -17,6 +53,6 @@ $(function() {
   });
   console.log("slick!!!")
 });
-</script>
+</script>-->
 
-<%= link_to 'ジャンル一覧', genres_path %>
+<!--<%= link_to 'ジャンル一覧', genres_path %>-->

@@ -1,24 +1,27 @@
-# README
+シネマタイム
+サイト概要
+各ジャンルごとに映画のレビュー、評価を投稿でき、配信サイトに直接URLで飛ぶ事が出来る 映画の公開日や配信日をカレンダーで管理し一目でわかるようにする
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+サイトテーマ
+外出を控えているご時世でも休日を楽しく過ごせるようにしたい
 
-Things you may want to cover:
+テーマを選んだ理由
+最近は家から出ることもできず休日を過ごすことが多いため
 
-* Ruby version
+ターゲットユーザ
+家で休日を過ごすユーザー
 
-* System dependencies
+主な利用シーン
+他のユーザーの評価を確認することができる
 
-* Configuration
+設計書
+機能一覧(AI教養コース)
+https://docs.google.com/spreadsheets/d/1ehIJwBkLWkL2O4b_HbsERVuS3RTp1RcrhmKpIta3J8w/edit?usp=sharing
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+開発環境
+OS：Linux(CentOS)
+言語：HTML,CSS,JavaScript,Ruby,SQL
+フレームワーク：Ruby on Rails
+JSライブラリ：jQuery
+IDE：Cloud9
+使用素材
