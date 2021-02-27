@@ -3,8 +3,20 @@
   <%= attachment_image_tag @movie, :image %>
   <p>タイトル：<%= @movie.name %></p>
   <p>内容：<%= @movie.body %></p>
+  <div id='<%= "star-rate-#{@movie.id}" %>'></div>
+        <script>
+          $('<%= "#star-rate-#{@movie.id}" %>').raty({
+            size: 36,
+            starOn: "<%= asset_path('star-on.png') %>",
+            starOff: "<%= asset_path('star-off.png') %>",
+            starHalf: "<%= asset_path('star-half.png') %>",
+            half: true,
+            readOnly: true,
+            score: '<%= "#{@movie.movie_comments.average(:evaluation).to_f.round(1)}" %>',
+          });
+        </script>
   <% @movie.genres.each do |genre| %>
-    <p>ジャンル : <%= link_to genre.genrename, movies_path(genre_id: genre.id) %></p>
+     <%= link_to genre.genrename, movies_path(genre_id: genre.id) %>
   <% end %>
   <p>投稿日時：<%= @movie.created_at.strftime('%Y/%m/%d') %></p>
 </div>
