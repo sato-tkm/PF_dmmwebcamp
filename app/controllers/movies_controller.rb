@@ -6,6 +6,10 @@ class MoviesController < ApplicationController
   def create
     @movie = Movie.new(movie_params)
     @movie.save!
+    genres = Vision.get_image_data(@movie.image)
+    genres.each do |genre|
+      @movie.genres.create(genrename: genre)
+    end
     flash[:notice] = "successfully"
     redirect_to movies_path
   end
