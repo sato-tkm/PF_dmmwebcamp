@@ -38,7 +38,6 @@
             half: true,
             readOnly: true,
             score: '<%= "#{movie_comment.evaluation.to_f.round(1)}" %>',
-        return $(this).attr('data-score');
     });
   </script>
   <% if movie_comment.user == current_user %>
