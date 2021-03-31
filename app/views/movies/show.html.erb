@@ -28,7 +28,19 @@
 <% @movie.movie_comments.each do |movie_comment| %>
   <%= movie_comment.created_at.strftime('%Y/%m/%d') %><%= movie_comment.comment %><br>
   <%= movie_comment.user.name %><br>
-  <p class="movie_comment-evaluation" data-score="<%= movie_comment.evaluation %>"></p>
+  <p id="movie_comment-evaluation-<%= movie_comment.id %>"></p>
+  <script>
+    $('#movie_comment-evaluation-<%= movie_comment.id %>' ).raty({
+        size: 36,
+            starOn: "<%= asset_path('star-on.png') %>",
+            starOff: "<%= asset_path('star-off.png') %>",
+            starHalf: "<%= asset_path('star-half.png') %>",
+            half: true,
+            readOnly: true,
+            score: '<%= "#{movie_comment.evaluation.to_f.round(1)}" %>',
+        return $(this).attr('data-score');
+    });
+  </script>
   <% if movie_comment.user == current_user %>
   <div class="comment-delete">
     <%= link_to "削除", movie_movie_comment_path(movie_comment.movie, movie_comment), method: :delete %>
@@ -61,13 +73,6 @@
   });
 
 
-  $('.movie_comment-evaluation').raty({
-    readOnly: true,
-    score: function() {
-      return $(this).attr('data-score');
-    },
-    path: '/assets/'
-  });
 </script>
 </body>
 
