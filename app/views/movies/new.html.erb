@@ -3,7 +3,9 @@
 <p></p>
 
 <%= form_with(model: @movie, local: true) do |f| %>
-
+    <% @movie.errors.full_messages.each do |msg| %>
+      <p><%= msg %></p>
+    <% end %>
     <h4>タイトル</h4>
     <%= f.text_field :name %>
 
