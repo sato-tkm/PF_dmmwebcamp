@@ -1,7 +1,7 @@
 class HomesController < ApplicationController
 
   def top
-    @movies = Movie.all
+    @movies = Movie.last(5)
     puts "slick!!!-----"
   end
 

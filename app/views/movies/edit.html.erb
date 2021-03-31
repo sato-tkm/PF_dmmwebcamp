@@ -1,0 +1,26 @@
+<body class="text-center">
+<h1>編集画面</h1>
+<p></p>
+
+<%= form_with(model: @movie, local: true) do |f| %>
+
+    <h4>タイトル</h4>
+    <%= f.text_field :name %>
+
+    <h4>内容</h4>
+    <%= f.text_area :body %>
+
+    <h4>画像</h4>
+    <%= f.attachment_field :image %>
+
+     <h4>ジャンル</h4>
+    <%= collection_check_boxes(:movie, :genre_ids, Genre.all, :id, :genrename, include_hidden: false) do |b| %>
+      <%= b.label { b.check_box + b.text } %>
+    <% end %>
+
+    <%= link_to 'ジャンル追加', new_genre_path %>
+
+    <p><%= f.submit '保存' %></p>
+
+<% end %>
+</body>

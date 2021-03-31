@@ -19,6 +19,8 @@
      <%= link_to genre.genrename, movies_path(genre_id: genre.id) %>
   <% end %>
   <p>投稿日時：<%= @movie.created_at.strftime('%Y/%m/%d') %></p>
+    <%=link_to "消去",movie_path(@movie),method: :delete, data: { confirm: '削除しますか？' } %>
+     <%= link_to "編集", edit_movie_path(@movie) %>
 </div>
 
 <div class="comments">

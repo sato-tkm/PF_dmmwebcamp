@@ -24,9 +24,28 @@ class MoviesController < ApplicationController
   end
 
   def show
-    @movie = Movie.find(params[:id])
+    @movie = Movie.find_by(id: params[:id])
+    if @movie == nil
+      redirect_to movies_path
+    end
     @movie_comment = MovieComment.new
     @like = Like.new
+  end
+
+  def edit
+    @movie = Movie.find(params[:id])
+  end
+
+  def update
+    movie = Movie.find(params[:id])
+    movie.update(movie_params)
+    redirect_to movie_path(movie)
+  end
+
+  def destroy
+    @movie = Movie.find(params[:id])
+    @movie.destroy
+    redirect_to movies_path
   end
 
   def search
